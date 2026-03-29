@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chest</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #00ffcc;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎁 Open Chest</h1>
+  <p id="result">Click to open!</p>
+
+  <button onclick="openChest()">Open Chest</button>
+
+  <script>
+    function openChest() {
+      const rewards = ["Common 😐", "Rare 😎", "Epic 🔥", "Legendary 🏆"];
+      const random = rewards[Math.floor(Math.random() * rewards.length)];
+      document.getElementById("result").innerText = "You got: " + random;
+    }
+  </script>
+
+</body>
+</html>
