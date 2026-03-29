@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chest</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    #result {
+      font-size: 24px;
+      margin: 20px;
+    }
+
+    button {
+      padding: 15px 40px;
+      font-size: 18px;
+      background: #00ffcc;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .common { color: #aaa; }
+    .rare { color: #4da6ff; }
+    .epic { color: #b84dff; }
+    .legendary { color: gold; }
+  </style>
+</head>
+<body>
+
+  <h1>🎁 Open Chest</h1>
+  <p id="result">Click to open!</p>
+
+  <button onclick="openChest()">Open Chest</button>
+
+  <script>
+    function openChest() {
+      const rand = Math.random() * 100;
+      let reward = "";
+      let className = "";
+
+      if (rand < 60) {
+        reward = "Common 😐";
+        className = "common";
+      } else if (rand < 85) {
+        reward = "Rare 😎";
+        className = "rare";
+      } else if (rand < 97) {
+        reward = "Epic 🔥";
+        className = "epic";
+      } else {
+        reward = "Legendary 🏆";
+        className = "legendary";
+      }
+
+      const result = document.getElementById("result");
+      result.innerText = "Opening...";
+      result.className = "";
+
+      // Fake animation delay
+      setTimeout(() => {
+        result.innerText = "You got: " + reward;
+        result.className = className;
+      }, 800);
+    }
+  </script>
+
+</body>
+</html>
